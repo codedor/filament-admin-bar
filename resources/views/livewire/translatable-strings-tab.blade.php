@@ -1,4 +1,6 @@
 <div>
+    <input type="text" wire:model.debounce.1000ms="query">
+
     <div wire:loading>
         > Loading icon <
     </div>

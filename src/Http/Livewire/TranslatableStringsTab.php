@@ -14,14 +14,13 @@ class TranslatableStringsTab extends Component
 
     public array $fields = [];
 
+    public string $query = '';
+
     public function mount()
     {
         $this->session = Collection::wrap(session()->pull('translatable-strings', []));
 
-        // Don't send HTML to the frontend, link-picker will break other Livewire components on the page
-        $this->fields = $this->strings()
-            ->mapWithKeys(fn ($string) => [$string->key => ($string->is_html ? '_HTML_' : $string->value)])
-            ->toArray();
+        $this->setFields();
     }
 
     public function render()
@@ -47,10 +46,27 @@ class TranslatableStringsTab extends Component
         $this->message = __('filament-admin-bar::translatable-strings-tab.save success');
     }
 
+    public function updatedQuery()
+    {
+        $this->setFields();
+    }
+
     private function strings()
     {
         return TranslatableString::query()
             ->whereIn('key', $this->session->dot()->keys())
+            ->when($this->query, fn ($query) => $query
+                ->where('key', 'like', "%{$this->query}%")
+                ->orWhere('value', 'like', "%{$this->query}%")
+            )
             ->get();
+    }
+
+    private function setFields()
+    {
+        // Don't send HTML to the frontend, link-picker will break other Livewire components on the page
+        $this->fields = $this->strings()
+            ->mapWithKeys(fn ($string) => [$string->key => ($string->is_html ? '_HTML_' : $string->value)])
+            ->toArray();
     }
 }

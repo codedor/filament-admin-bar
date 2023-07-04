@@ -10,17 +10,17 @@ abstract class Tab
 
     abstract public function render(): View;
 
-    public function name()
+    public function name(): string
     {
         return $this->name;
     }
 
-    public function key()
+    public function key(): string
     {
         return md5(get_class($this));
     }
 
-    public function canSee()
+    public function canSee(): bool
     {
         return true;
     }

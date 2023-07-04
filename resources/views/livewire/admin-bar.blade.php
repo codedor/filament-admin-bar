@@ -16,7 +16,9 @@
             @style(['display: none' => ($tab->key() !== $current)])
             wire:key="{{ $tab->key() }}"
         >
-            {{ $tab->render() }}
+            <div wire:ignore>
+                {{ $tab->render() }}
+            </div>
         </div>
     @endforeach
 </div>
