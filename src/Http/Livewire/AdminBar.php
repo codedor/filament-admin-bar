@@ -3,6 +3,7 @@
 namespace Codedor\FilamentAdminBar\Http\Livewire;
 
 use Codedor\FilamentAdminBar\Tabs\Tab;
+use Filament\Facades\Filament;
 use Livewire\Component;
 
 class AdminBar extends Component
@@ -11,6 +12,10 @@ class AdminBar extends Component
 
     public function render()
     {
+        if (! Filament::auth()->check()) {
+            return '';
+        }
+
         $tabs = collect(config('filament-admin-bar.tabs', []))
             ->map(fn (string $tab) => new $tab())
             ->filter(fn (Tab $tab) => $tab->canSee());
