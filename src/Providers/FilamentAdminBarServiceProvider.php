@@ -12,7 +12,6 @@ class FilamentAdminBarServiceProvider extends PackageServiceProvider
         $package
             ->name('filament-admin-bar')
             ->setBasePath(__DIR__ . '/../')
-            ->hasConfigFile()
-            ->hasMigration('create_package_table');
+            ->hasConfigFile();
     }
 }

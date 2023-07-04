@@ -28,7 +28,10 @@
         "psr-4": {
             "Codedor\\FilamentAdminBar\\": "src",
             "Codedor\\FilamentAdminBar\\Database\\Factories\\": "database/factories"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
