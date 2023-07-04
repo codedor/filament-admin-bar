@@ -1,4 +1,4 @@
-# :package_description
+# Admin bar for filament
 
 ## Introduction
 
