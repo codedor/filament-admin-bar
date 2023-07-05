@@ -20,13 +20,17 @@ class AdminBar extends Component
             ->map(fn (string $tab) => new $tab())
             ->filter(fn (Tab $tab) => $tab->canSee());
 
+        if ($tabs->isEmpty()) {
+            return '';
+        }
+
         if (! $this->current) {
             $this->current = session('filament-admin-bar.current', $tabs->first()?->key());
         }
 
         return view('filament-admin-bar::livewire.admin-bar', [
             'tabs' => $tabs,
-            'activeTab' => $tabs->firstWhere(fn (Tab $tab) => $tab->key() === $this->current),
+            'activeTab' => $tabs->first(fn (Tab $tab) => $tab->key() === $this->current),
         ]);
     }
 
