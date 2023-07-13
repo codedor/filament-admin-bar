@@ -67,19 +67,19 @@
             </div>
         @endif
 
-        <div class="rounded-xl border border-gray-300 bg-white">
+        <div class="rounded-xl border border-gray-300 bg-white shadow-sm">
         <table class="w-full">
             <tr class="bg-gray-500/5">
-                <th class="p-4 text-left text-sm font-medium text-gray-600">Name</th>
-                <th class="p-4 text-left text-sm font-medium text-gray-600">Translation</th>
+                <th class="p-3 text-left text-sm font-medium text-gray-600">Name</th>
+                <th class="p-3 text-left text-sm font-medium text-gray-600">Translation</th>
             </tr>
             @foreach ($strings as $string)
                 <tr class="border-t border-gray-300">
-                    <td class="py-3 px-4">
+                    <td class="py-3 px-3">
                         {{ $string->key }}
                     </td>
 
-                    <td class="py-3 px-4">
+                    <td class="py-3 px-3">
                         @if ($string->is_html)
                             <a
                                 class="
@@ -92,6 +92,7 @@
                                 href="/admin/translatable-strings/{{ $string->id }}/edit?locale=-{{ app()->getLocale() }}-tab"
                                 target="_blank"
                             >
+                                <x-heroicon-o-pencil class="filament-link-icon w-4 h-4 mr-1 rtl:ml-1"/>
                                 {{ __('filament-admin-bar::translatable-strings-tab.edit in the cms') }}
                             </a>
                         @else
