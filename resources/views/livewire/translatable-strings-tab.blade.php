@@ -68,7 +68,7 @@
         @endif
 
         <div class="rounded-xl border border-gray-300 bg-white">
-        <table style="width: 100%;">
+        <table class="w-full">
             <tr class="bg-gray-500/5">
                 <th class="p-4 text-left text-sm font-medium text-gray-600">Name</th>
                 <th class="p-4 text-left text-sm font-medium text-gray-600">Translation</th>

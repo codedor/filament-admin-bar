@@ -1,5 +1,6 @@
-<div class="fixed right-0 bottom-0 left-0">
-    <div class="rounded-t-lg border border-gray-300">
+<div x-data="{ open: false }" class="fixed right-0 bottom-0 left-0">
+    <button type="button" x-on:click="open = !open" title="Toggle admin bar">Toggle</button>
+    <div x-show="open" x-collapse class="rounded-t-lg border border-gray-300">
         <ul class="flex items-center rounded-t-lg  bg-gray-100 overflow-hidden">
             @foreach ($tabs as $tab)
                 <li

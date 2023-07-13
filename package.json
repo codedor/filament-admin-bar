@@ -1,0 +1,12 @@
+{
+  "name": "filament-admin-bar",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vie preview"
+  },
+  "dependencies": {
+    "laravel-vite-plugin": "^0.7.8",
+    "vite": "^4.4.3"
+  }
+}
