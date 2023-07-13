@@ -2,7 +2,7 @@
     <div class="flex justify-end mr-3 mb-3">
         <button
             type="button"
-            x-on:click="open = !open"
+            @click="open = !open"
             title="Toggle admin bar"
             class="
                 filament-button
@@ -26,7 +26,11 @@
             </svg>
         </button>
     </div>
-    <div x-show="open" x-collapse class="rounded-t-lg border border-gray-300">
+    <div
+        x-show="open"
+        x-collapse.duration.500ms
+        class="rounded-t-lg border border-gray-300"
+    >
         <ul class="flex items-center rounded-t-lg  bg-gray-100 overflow-hidden">
             @foreach ($tabs as $tab)
                 <li
