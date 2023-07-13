@@ -53,4 +53,8 @@
             </div>
         @endforeach
     </div>
+
+    <script src="{{ asset('vendor/filament-admin-bar/assets/app.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('vendor/filament-admin-bar/assets/filament-admin-bar.css') }}">
 </div>
+

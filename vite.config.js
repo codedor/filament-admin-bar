@@ -4,6 +4,7 @@ import laravel from 'laravel-vite-plugin'
 export default defineConfig({
   plugins: [
     laravel({
+      publicDirectory: 'resources',
       buildDirectory: 'dist',
       input: [
         // ...

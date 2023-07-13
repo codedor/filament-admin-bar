@@ -15,7 +15,8 @@ class FilamentAdminBarServiceProvider extends PackageServiceProvider
             ->name('filament-admin-bar')
             ->setBasePath(__DIR__ . '/../')
             ->hasViews()
-            ->hasConfigFile();
+            ->hasConfigFile()
+            ->hasAssets();
     }
 
     public function bootingPackage()

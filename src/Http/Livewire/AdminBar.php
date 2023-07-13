@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class AdminBar extends Component
 {
-    public null|string $current = null;
+    public ?string $current = null;
 
     public function render()
     {
