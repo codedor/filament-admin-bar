@@ -3,10 +3,5 @@
     "file": "assets/filament-admin-bar.css",
     "isEntry": true,
     "src": "resources/css/filament-admin-bar.css"
-  },
-  "resources/js/app.js": {
-    "file": "assets/app.js",
-    "isEntry": true,
-    "src": "resources/js/app.js"
   }
 }

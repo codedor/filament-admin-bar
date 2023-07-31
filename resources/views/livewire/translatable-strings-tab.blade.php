@@ -22,7 +22,7 @@
             </span>
             <input
                 type="text"
-                wire:model.debounce.1000ms="query"
+                wire:model.live.debounce.1000ms="query"
                 class="
                     block h-9 w-full max-w-xs pl-9
                     placeholder-gray-400
