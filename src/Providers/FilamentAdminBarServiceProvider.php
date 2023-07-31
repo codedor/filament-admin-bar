@@ -2,7 +2,7 @@
 
 namespace Codedor\FilamentAdminBar\Providers;
 
-use Codedor\FilamentAdminBar\Http\Livewire as Components;
+use Codedor\FilamentAdminBar\Livewire as Components;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

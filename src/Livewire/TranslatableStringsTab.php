@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedor\FilamentAdminBar\Http\Livewire;
+namespace Codedor\FilamentAdminBar\Livewire;
 
 use Codedor\TranslatableStrings\Models\TranslatableString;
 use Illuminate\Support\Collection;
