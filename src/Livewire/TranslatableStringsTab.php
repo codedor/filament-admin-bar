@@ -10,7 +10,7 @@ class TranslatableStringsTab extends Component
 {
     public Collection $session;
 
-    public null|string $message = null;
+    public ?string $message = null;
 
     public array $fields = [];
 
