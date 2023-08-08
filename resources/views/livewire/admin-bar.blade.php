@@ -7,6 +7,7 @@
                 title="Toggle admin bar"
                 class="
                     filament-button
+                    absolute bottom-full
                     inline-flex items-center justify-center p-3
                     font-medium text-sm text-white
                     rounded-full border shadow-lg shadow-primary-500/50 bg-primary-600 border-transparent
