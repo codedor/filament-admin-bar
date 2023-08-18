@@ -1,8 +1,6 @@
 # Admin bar for filament
 
-## 
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This package will add an admin bar to your front-end, only visible for logged in administrators.
 
 ## Installation
 
@@ -29,7 +27,18 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'tabs' => [
+        Codedor\FilamentAdminBar\Tabs\SeoTab::class,
+        Codedor\FilamentAdminBar\Tabs\TranslatableStringsTab::class,
+    ],
+    'translatable-strings-tab' => [
+        'excluded' => [
+            'filament-admin-bar::*',
+            'routes.*',
+        ],
+    ],
 ];
+
 ```
 
 Optionally, you can publish the views using
@@ -40,9 +49,8 @@ php artisan vendor:publish --tag="filament-admin-bar-views"
 
 ## Usage
 
-```php
-$filamentAdminBar = new Codedor\FilamentAdminBar();
-echo $filamentAdminBar->echoPhrase('Hello, Codedor!');
+```blade
+<livewire:admin-bar />
 ```
 
 ## Documentation
