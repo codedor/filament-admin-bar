@@ -7,10 +7,8 @@ export default defineConfig({
       publicDirectory: 'resources',
       // buildDirectory: 'dist',
       buildDirectory: '../../../../public/css/codedor/filament-admin-bar',
-      input: [
-        'resources/css/filament-admin-bar.css',
-      ],
-    }),
+      input: ['resources/css/filament-admin-bar.css']
+    })
   ],
   build: {
     rollupOptions: {

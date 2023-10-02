@@ -1,12 +1,12 @@
 module.exports = {
-  content: ["./resources/views/**/*.blade.php"],
-  darkMode: "class",
-  important: ".filament-admin-bar",
+  content: ['./resources/views/**/*.blade.php'],
+  darkMode: 'class',
+  important: '.filament-admin-bar',
   theme: {
-      extend: {},
+    extend: {}
   },
   plugins: [],
   corePlugins: {
-      preflight: false,
-  },
-};
+    preflight: false
+  }
+}

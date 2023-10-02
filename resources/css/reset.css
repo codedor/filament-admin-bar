@@ -5,4 +5,103 @@ Licensed under the BSD License.
 http://yuilibrary.com/license/
 */
 
-.filament-admin-bar html{color:#000;background:#FFF}.filament-admin-bar body,.filament-admin-bar div,.filament-admin-bar dl,.filament-admin-bar dt,.filament-admin-bar dd,.filament-admin-bar ul,.filament-admin-bar ol,.filament-admin-bar li,.filament-admin-bar h1,.filament-admin-bar h2,.filament-admin-bar h3,.filament-admin-bar h4,.filament-admin-bar h5,.filament-admin-bar h6,.filament-admin-bar pre,.filament-admin-bar code,.filament-admin-bar form,.filament-admin-bar fieldset,.filament-admin-bar legend,.filament-admin-bar input,.filament-admin-bar textarea,.filament-admin-bar p,.filament-admin-bar blockquote,.filament-admin-bar th,.filament-admin-bar td{margin:0;padding:0}.filament-admin-bar table{border-collapse:collapse;border-spacing:0}.filament-admin-bar fieldset,.filament-admin-bar img{border:0}.filament-admin-bar address,.filament-admin-bar caption,.filament-admin-bar cite,.filament-admin-bar code,.filament-admin-bar dfn,.filament-admin-bar em,.filament-admin-bar strong,.filament-admin-bar th,.filament-admin-bar var{font-style:normal;font-weight:normal}.filament-admin-bar ol,.filament-admin-bar ul{list-style:none}.filament-admin-bar caption,.filament-admin-bar th{text-align:left}.filament-admin-bar h1,.filament-admin-bar h2,.filament-admin-bar h3,.filament-admin-bar h4,.filament-admin-bar h5,.filament-admin-bar h6{font-size:100%;font-weight:normal}.filament-admin-bar q:before,.filament-admin-bar q:after{content:''}.filament-admin-bar abbr,.filament-admin-bar acronym{border:0;font-variant:normal}.filament-admin-bar sup{vertical-align:text-top}.filament-admin-bar sub{vertical-align:text-bottom}.filament-admin-bar input,.filament-admin-bar textarea,.filament-admin-bar select{font-family:inherit;font-size:inherit;font-weight:inherit}.filament-admin-bar input,.filament-admin-bar textarea,.filament-admin-bar select{font-size:100%}.filament-admin-bar legend{color:#000}
+.filament-admin-bar html {
+  color: #000;
+  background: #fff;
+}
+.filament-admin-bar body,
+.filament-admin-bar div,
+.filament-admin-bar dl,
+.filament-admin-bar dt,
+.filament-admin-bar dd,
+.filament-admin-bar ul,
+.filament-admin-bar ol,
+.filament-admin-bar li,
+.filament-admin-bar h1,
+.filament-admin-bar h2,
+.filament-admin-bar h3,
+.filament-admin-bar h4,
+.filament-admin-bar h5,
+.filament-admin-bar h6,
+.filament-admin-bar pre,
+.filament-admin-bar code,
+.filament-admin-bar form,
+.filament-admin-bar fieldset,
+.filament-admin-bar legend,
+.filament-admin-bar input,
+.filament-admin-bar textarea,
+.filament-admin-bar p,
+.filament-admin-bar blockquote,
+.filament-admin-bar th,
+.filament-admin-bar td {
+  margin: 0;
+  padding: 0;
+}
+.filament-admin-bar table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.filament-admin-bar fieldset,
+.filament-admin-bar img {
+  border: 0;
+}
+.filament-admin-bar address,
+.filament-admin-bar caption,
+.filament-admin-bar cite,
+.filament-admin-bar code,
+.filament-admin-bar dfn,
+.filament-admin-bar em,
+.filament-admin-bar strong,
+.filament-admin-bar th,
+.filament-admin-bar var {
+  font-style: normal;
+  font-weight: normal;
+}
+.filament-admin-bar ol,
+.filament-admin-bar ul {
+  list-style: none;
+}
+.filament-admin-bar caption,
+.filament-admin-bar th {
+  text-align: left;
+}
+.filament-admin-bar h1,
+.filament-admin-bar h2,
+.filament-admin-bar h3,
+.filament-admin-bar h4,
+.filament-admin-bar h5,
+.filament-admin-bar h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+.filament-admin-bar q:before,
+.filament-admin-bar q:after {
+  content: '';
+}
+.filament-admin-bar abbr,
+.filament-admin-bar acronym {
+  border: 0;
+  font-variant: normal;
+}
+.filament-admin-bar sup {
+  vertical-align: text-top;
+}
+.filament-admin-bar sub {
+  vertical-align: text-bottom;
+}
+.filament-admin-bar input,
+.filament-admin-bar textarea,
+.filament-admin-bar select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.filament-admin-bar input,
+.filament-admin-bar textarea,
+.filament-admin-bar select {
+  font-size: 100%;
+  border-style: solid;
+}
+.filament-admin-bar legend {
+  color: #000;
+}
