@@ -67,7 +67,7 @@
                                     <input
                                         class="w-full"
                                         type="text"
-                                        wire:model.defer="fields.{{ $string->key }}"
+                                        wire:model.defer="fields.{{ $string->id }}"
                                     >
                                 @endif
                             </td>
