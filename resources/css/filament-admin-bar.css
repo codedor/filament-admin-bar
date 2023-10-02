@@ -1,3 +1,10 @@
+@import 'reset';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.filament-admin-bar {
+    position: relative;
+    z-index: 9999;
+}
