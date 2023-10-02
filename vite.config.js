@@ -5,8 +5,7 @@ export default defineConfig({
   plugins: [
     laravel({
       publicDirectory: 'resources',
-      // buildDirectory: 'dist',
-      buildDirectory: '../../../../public/css/codedor/filament-admin-bar',
+      buildDirectory: 'dist',
       input: ['resources/css/filament-admin-bar.css']
     })
   ],
