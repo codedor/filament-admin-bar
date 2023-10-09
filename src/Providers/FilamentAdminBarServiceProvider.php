@@ -27,7 +27,7 @@ class FilamentAdminBarServiceProvider extends PackageServiceProvider
         Livewire::component('translatable-strings-tab', Components\TranslatableStringsTab::class);
 
         FilamentAsset::register([
-            Css::make('filament-admin-bar-stylesheet', __DIR__ . '/../dist/assets/laravel-admin-bar.css'),
+            Css::make('filament-admin-bar-stylesheet', __DIR__ . '/../../dist/assets/filament-admin-bar.css'),
         ], 'codedor/filament-admin-bar');
     }
 }
