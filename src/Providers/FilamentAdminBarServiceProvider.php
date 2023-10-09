@@ -3,6 +3,8 @@
 namespace Codedor\FilamentAdminBar\Providers;
 
 use Codedor\FilamentAdminBar\Livewire as Components;
+use Filament\Support\Assets\Css;
+use Filament\Support\Facades\FilamentAsset;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -23,5 +25,9 @@ class FilamentAdminBarServiceProvider extends PackageServiceProvider
     {
         Livewire::component('admin-bar', Components\AdminBar::class);
         Livewire::component('translatable-strings-tab', Components\TranslatableStringsTab::class);
+
+        FilamentAsset::register([
+            Css::make('filament-admin-bar-stylesheet', __DIR__ . '/../../dist/assets/laravel-admin-bar.css'),
+        ], 'codedor/filament-admin-bar');
     }
 }

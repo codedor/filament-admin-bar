@@ -1,5 +1,4 @@
 <div class="filament-admin-bar">
-    {!! (new \Filament\Support\Assets\AssetManager)->renderStyles() !!}
     <link rel="stylesheet" href="{{ asset('css/codedor/filament-admin-bar/assets/filament-admin-bar.css') }}">
 
     <div
