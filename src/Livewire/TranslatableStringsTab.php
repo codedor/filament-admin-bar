@@ -18,7 +18,9 @@ class TranslatableStringsTab extends Component
 
     public function mount()
     {
-        $this->session = Collection::wrap(session()->pull('translatable-strings', []));
+        $this->session = Collection::wrap(
+            session()->pull('translatable-strings', [])
+        )->dot()->keys();
 
         $this->setFields();
     }
@@ -54,7 +56,7 @@ class TranslatableStringsTab extends Component
     private function strings()
     {
         return TranslatableString::query()
-            ->whereIn('key', $this->session->dot()->keys())
+            ->whereIn('key', $this->session)
             ->when($this->query, fn ($query) => $query
                 ->where('key', 'like', "%{$this->query}%")
                 ->orWhere('value', 'like', "%{$this->query}%")
