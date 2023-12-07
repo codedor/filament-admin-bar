@@ -1,8 +1,8 @@
 # Admin bar for filament
 
-## 
+This package will add an admin bar to the frontend, only visible for logged in Filament users.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+![img.png](docs/img.png)
 
 ## Installation
 
@@ -10,13 +10,6 @@ You can install the package via composer:
 
 ```bash
 composer require codedor/filament-admin-bar
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-admin-bar-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -29,6 +22,16 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'tabs' => [
+        Codedor\FilamentAdminBar\Tabs\SeoTab::class,
+        Codedor\FilamentAdminBar\Tabs\TranslatableStringsTab::class,
+    ],
+    'translatable-strings-tab' => [
+        'excluded' => [
+            'filament-admin-bar::*',
+            'routes.*',
+        ],
+    ],
 ];
 ```
 
@@ -40,9 +43,8 @@ php artisan vendor:publish --tag="filament-admin-bar-views"
 
 ## Usage
 
-```php
-$filamentAdminBar = new Codedor\FilamentAdminBar();
-echo $filamentAdminBar->echoPhrase('Hello, Codedor!');
+```blade
+<livewire:admin-bar />
 ```
 
 ## Documentation
