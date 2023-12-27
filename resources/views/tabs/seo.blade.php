@@ -1,4 +1,4 @@
-<div class="rounded border border-gray-300 bg-white overflow-auto">
+<div class="rounded-2xl border border-gray-300 bg-white overflow-auto">
     <table class="w-full">
         <tr class="bg-gray-100">
             <th class="py-1.5 px-3 text-left font-medium text-gray-600 min-w-[26rem]">Name</th>
@@ -12,7 +12,7 @@
                         <img
                             class="
                                 min-w-40 max-w-40 min-h-40 max-h-40 object-cover
-                                rounded shadow-slate-300/50
+                                rounded-lg shadow-slate-300/50
                             "
                             src="{{ $value }}"
                         />

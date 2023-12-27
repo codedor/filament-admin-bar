@@ -41,8 +41,8 @@
                     <li
                         wire:click="changeTab('{{ $tab->key() }}')"
                         @class([
-                            'py-2 px-4 font-medium text-gray-500 hover:text-gray-800 cursor-pointer',
-                            'active bg-white text-teal-600 hover:text-teal-600' => $tab->key() === $current
+                            'py-1.5 px-3 font-medium text-gray-500 hover:text-gray-800 cursor-pointer',
+                            'active bg-white rounded-t-2xl text-teal-600 hover:text-teal-600' => $tab->key() === $current
                         ])
                     >
                         {{ $tab->name() }}

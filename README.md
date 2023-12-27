@@ -12,6 +12,12 @@ You can install the package via composer:
 composer require codedor/filament-admin-bar
 ```
 
+DO NOT forget to publish the CSS files, or the bar will not be visible:
+
+```bash
+php artisan vendor:publish --force --tag=filament-admin-bar-assets
+```
+
 You can publish the config file with:
 
 ```bash
