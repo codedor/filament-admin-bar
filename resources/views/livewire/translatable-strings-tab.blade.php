@@ -14,13 +14,13 @@
             <input
                 type="text"
                 wire:model.live.debounce.1000ms="query"
-                class="w-full py-1 px-4.5 pl-14"
+                class="w-full py-3 px-4.5 pl-14"
             >
         </label>
     </div>
 
     <div wire:loading>
-        <div class="flex items-center gap-2 w-full">
+        <div class="flex items-center gap-2 w-full opacity-50">
             <x-heroicon-o-arrow-path class="w-8 h-8 animate-spin" />
             Loading...
         </div>
@@ -92,7 +92,7 @@
                 Save translations
             </button>
         @else
-            <div class="flex items-center gap-2 w-full">
+            <div class="flex items-center gap-2 w-full opacity-50">
                 <x-heroicon-o-x-circle class="w-8 h-8" />
                 No translatable strings found
             </div>

@@ -1,0 +1,7 @@
+{
+  "resources/css/filament-admin-bar.css": {
+    "file": "assets/filament-admin-bar.css",
+    "isEntry": true,
+    "src": "resources/css/filament-admin-bar.css"
+  }
+}
