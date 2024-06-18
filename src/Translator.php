@@ -14,7 +14,7 @@ class Translator extends BaseTranslator
         $excluded = config('filament-admin-bar.translatable-strings-tab.excluded', []);
 
         // Don't show Filament strings in the admin bar when returning to the front-end
-        if (! Filament::isServing() && ! collect($excluded)->contains(fn ($exclude) => Str::is($exclude, $key))) {
+        if (! collect($excluded)->contains(fn ($exclude) => Str::is($exclude, $key))) {
             session()->put("translatable-strings.$key", $translation);
         }
 
