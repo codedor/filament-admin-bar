@@ -11,7 +11,6 @@
     "require": {
         "php": "^8.2",
         "codedor/filament-translatable-strings": "^1.1",
-        "codedor/filament-seo": "^1.1",
         "filament/filament": "^3.1",
         "illuminate/contracts": "^10.0 || ^11.0",
         "livewire/livewire": "^3.2",
@@ -27,6 +26,9 @@
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0"
+    },
+    "suggest":{
+        "codedor/filament-seo": "^1.1"
     },
     "autoload": {
         "psr-4": {
