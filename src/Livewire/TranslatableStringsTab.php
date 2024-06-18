@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedor\FilamentAdminBar\Http\Livewire;
+namespace Codedor\FilamentAdminBar\Livewire;
 
 use Codedor\TranslatableStrings\Models\TranslatableString;
 use Illuminate\Support\Collection;
@@ -10,7 +10,7 @@ class TranslatableStringsTab extends Component
 {
     public Collection $session;
 
-    public null|string $message = null;
+    public ?string $message = null;
 
     public array $fields = [];
 
@@ -18,7 +18,9 @@ class TranslatableStringsTab extends Component
 
     public function mount()
     {
-        $this->session = Collection::wrap(session()->pull('translatable-strings', []));
+        $this->session = Collection::wrap(
+            session()->pull('translatable-strings', [])
+        )->dot()->keys();
 
         $this->setFields();
     }
@@ -37,13 +39,13 @@ class TranslatableStringsTab extends Component
             ->dot();
 
         TranslatableString::query()
-            ->whereIn('key', $data->keys())
+            ->whereIn('id', $data->keys())
             ->get()
             ->each(fn ($string) => $string->update([
-                'value' => $data->get($string->key),
+                'value' => $data->get($string->id),
             ]));
 
-        $this->message = __('filament-admin-bar::translatable-strings-tab.save success');
+        $this->message = 'The new strings are being saved, please wait a minute for them to be available.';
     }
 
     public function updatedQuery()
@@ -54,7 +56,7 @@ class TranslatableStringsTab extends Component
     private function strings()
     {
         return TranslatableString::query()
-            ->whereIn('key', $this->session->dot()->keys())
+            ->whereIn('key', $this->session)
             ->when($this->query, fn ($query) => $query
                 ->where('key', 'like', "%{$this->query}%")
                 ->orWhere('value', 'like', "%{$this->query}%")
@@ -66,7 +68,7 @@ class TranslatableStringsTab extends Component
     {
         // Don't send HTML to the frontend, link-picker will break other Livewire components on the page
         $this->fields = $this->strings()
-            ->mapWithKeys(fn ($string) => [$string->key => ($string->is_html ? '_HTML_' : $string->value)])
+            ->mapWithKeys(fn ($string) => [$string->id => ($string->is_html ? '_HTML_' : $string->value)])
             ->toArray();
     }
 }

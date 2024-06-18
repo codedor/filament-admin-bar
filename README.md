@@ -1,6 +1,8 @@
 # Admin bar for filament
 
-This package will add an admin bar to your front-end, only visible for logged in administrators.
+This package will add an admin bar to the frontend, only visible for logged in Filament users.
+
+![img.png](docs/img.png)
 
 ## Installation
 
@@ -10,11 +12,10 @@ You can install the package via composer:
 composer require codedor/filament-admin-bar
 ```
 
-You can publish and run the migrations with:
+DO NOT forget to publish the CSS files, or the bar will not be visible:
 
 ```bash
-php artisan vendor:publish --tag="filament-admin-bar-migrations"
-php artisan migrate
+php artisan vendor:publish --force --tag=filament-admin-bar-assets
 ```
 
 You can publish the config file with:

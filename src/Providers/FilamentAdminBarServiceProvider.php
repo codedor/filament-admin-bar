@@ -2,7 +2,7 @@
 
 namespace Codedor\FilamentAdminBar\Providers;
 
-use Codedor\FilamentAdminBar\Http\Livewire as Components;
+use Codedor\FilamentAdminBar\Livewire as Components;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -15,7 +15,8 @@ class FilamentAdminBarServiceProvider extends PackageServiceProvider
             ->name('filament-admin-bar')
             ->setBasePath(__DIR__ . '/../')
             ->hasViews()
-            ->hasConfigFile();
+            ->hasConfigFile()
+            ->hasAssets();
     }
 
     public function bootingPackage()

@@ -4,6 +4,7 @@ namespace Codedor\FilamentAdminBar\Tests;
 
 use Codedor\FilamentAdminBar\Providers\FilamentAdminBarServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -21,6 +22,7 @@ class TestCase extends Orchestra
     {
         return [
             FilamentAdminBarServiceProvider::class,
+            LivewireServiceProvider::class,
         ];
     }
 
