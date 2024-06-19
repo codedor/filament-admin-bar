@@ -12,9 +12,9 @@ class TranslationLoader extends TranslationServiceProvider
 
         $this->app->singleton('translator', function ($app) {
             $loader = $app['translation.loader'];
-            $locale = $app['config']['app.locale'];
+            $locale = $app->getLocale();
             $trans = new Translator($loader, $locale); // < different translator
-            $trans->setFallback($app['config']['app.fallback_locale']);
+            $trans->setFallback($app->getFallbackLocale());
 
             return $trans;
         });
