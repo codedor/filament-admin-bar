@@ -10,6 +10,18 @@
             toggle () {
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
+            },
+            drag($event) {
+                if (! this.listenForResize) return
+
+                $event.preventDefault()
+
+                const $tabs = document.querySelector('[data-admin-bar-tabs]')
+                const newHeight = window.innerHeight - $tabs.clientHeight - ($event.clientY || $event.touches[0].clientY)
+
+                if (newHeight > 40 && newHeight < window.innerHeight) {
+                    this.adminBarSize = newHeight + 'px'
+                }
             }
         }"
     >
@@ -41,20 +53,13 @@
         >
             <div
                 data-admin-bar-resizer
-                class="h-1 bg-teal-500 cursor-ns-resize"
-                @mousedown.document="listenForResize = true"
+                class="h-1 bg-teal-500 cursor-ns-resize touch-none"
+                @mousedown="listenForResize = true"
+                @touchstart.passive="listenForResize = true"
                 @mouseup.document="listenForResize = false"
-                @mousemove.document="($event) => {
-                        if (! listenForResize) return
-
-                        $event.preventDefault()
-                        const $tabs = document.querySelector('[data-admin-bar-tabs]')
-                        const newHeight = window.innerHeight - $tabs.clientHeight - $event.clientY
-
-                        if (newHeight > 40 && newHeight < window.innerHeight) {
-                            adminBarSize = newHeight + 'px'
-                        }
-                }"
+                @touchend.document.passive="listenForResize = false"
+                @mousemove.document="drag($event)"
+                @touchmove.document="drag($event)"
             ></div>
 
             <ul
