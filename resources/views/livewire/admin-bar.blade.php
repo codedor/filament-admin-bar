@@ -19,7 +19,7 @@
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
                 const newHeight = window.innerHeight - $tabs.clientHeight - ($event.clientY || $event.touches[0].clientY)
 
-                if (newHeight > 40 && newHeight < window.innerHeight) {
+                if (newHeight > 40 && newHeight < window.innerHeight - $tabs.clientHeight - 92) {
                     this.adminBarSize = newHeight + 'px'
                 }
             }
