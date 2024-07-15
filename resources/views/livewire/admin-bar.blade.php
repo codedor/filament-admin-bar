@@ -5,6 +5,8 @@
         class="fixed right-0 bottom-0 left-0"
         x-data="{
             open: window.localStorage.getItem('filament-admin-bar-open') === 'true' || false,
+            listenForResize: false,
+            adminBarSize: 400,
             toggle () {
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
@@ -34,14 +36,36 @@
             x-show="open"
             x-collapse.duration.500ms
             x-cloak
-            class="shadow-2xl outline outline-2 outline-teal-500 bg-white"
+            class="shadow-2xl bg-white"
+            data-admin-bar
         >
-            <ul class="flex items-center bg-gray-100 overflow-hidden">
+            <div
+                data-admin-bar-resizer
+                class="h-1 bg-teal-500 cursor-ns-resize"
+                @mousedown.document="listenForResize = true"
+                @mouseup.document="listenForResize = false"
+                @mousemove.document="($event) => {
+                        if (! listenForResize) return
+
+                        $event.preventDefault()
+                        const $tabs = document.querySelector('[data-admin-bar-tabs]')
+                        const newHeight = window.innerHeight - $tabs.clientHeight - $event.clientY
+
+                        if (newHeight > 40 && newHeight < window.innerHeight) {
+                            adminBarSize = newHeight + 'px'
+                        }
+                }"
+            ></div>
+
+            <ul
+                class="flex items-center bg-gray-100 overflow-hidden"
+                data-admin-bar-tabs
+            >
                 @foreach ($tabs as $tab)
                     <li
                         wire:click="changeTab('{{ $tab->key() }}')"
                         @class([
-                            'py-1.5 px-3 font-medium text-gray-500 hover:text-gray-800 cursor-pointer',
+                            'py-1.5 px-3 font-medium text-gray-500 hover:text-gray-800 cursor-pointer select-none',
                             'active bg-white rounded-t-2xl text-teal-600 hover:text-teal-600' => $tab->key() === $current
                         ])
                     >
@@ -56,7 +80,12 @@
                     @style(['display: none' => ($tab->key() !== $current)])
                     wire:key="{{ $tab->key() }}"
                 >
-                    <div wire:ignore class="p-4" style="height: 400px; overflow-y: auto">
+                    <div
+                        wire:ignore
+                        class="p-4"
+                        style="overflow-y: auto"
+                        :style="{ height: adminBarSize }"
+                    >
                         {{ $tab->render() }}
                     </div>
                 </div>
