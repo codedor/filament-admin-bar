@@ -6,21 +6,27 @@
         x-data="{
             open: window.localStorage.getItem('filament-admin-bar-open') === 'true' || false,
             listenForResize: false,
-            adminBarSize: 400,
+            setListenForResize(shouldListen = true) {
+                this.listenForResize = shouldListen
+                {{-- The "user-select-none" class has to be bootstrap because the tailwind --}}
+                {{-- classes are scoped to the filament-admin-bar component --}}
+                window.document.documentElement.classList.toggle('user-select-none', shouldListen)
+            },
+            adminBarHeight: 400,
             toggle () {
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
             },
-            drag($event) {
+            drag(event) {
                 if (! this.listenForResize) return
 
-                $event.preventDefault()
+                event.preventDefault()
 
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
-                const newHeight = window.innerHeight - $tabs.clientHeight - ($event.clientY || $event.touches[0].clientY)
+                const newHeight = window.innerHeight - $tabs.clientHeight - (event.clientY || event.touches[0]?.clientY)
 
                 if (newHeight > 40 && newHeight < window.innerHeight - $tabs.clientHeight - 92) {
-                    this.adminBarSize = newHeight + 'px'
+                    this.adminBarHeight = newHeight + 'px'
                 }
             }
         }"
@@ -87,9 +93,8 @@
                 >
                     <div
                         wire:ignore
-                        class="p-4"
-                        style="overflow-y: auto"
-                        :style="{ height: adminBarSize }"
+                        class="p-4 overflow-y-auto"
+                        :style="{ height: adminBarHeight }"
                     >
                         {{ $tab->render() }}
                     </div>
