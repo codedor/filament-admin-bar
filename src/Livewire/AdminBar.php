@@ -12,7 +12,9 @@ class AdminBar extends Component
 
     public function render()
     {
-        if (! Filament::auth()->check()) {
+        if (config('filament-admin-bar.filament-guard') && ! auth()->guard(config('filament-admin-bar.filament-guard'))->check()) {
+            return '<div></div>';
+        } elseif (! Filament::auth()->check()) {
             return '<div></div>';
         }
 
