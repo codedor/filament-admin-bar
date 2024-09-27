@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="{{ asset('css/codedor/filament-admin-bar/filament-admin-bar.css') }}">
 
     <div
-        class="fixed right-0 bottom-0 left-0"
+        class="fixed right-0 bottom-0 left-0 max-h-screen overflow-y-scroll"
         x-data="{
             open: window.localStorage.getItem('filament-admin-bar-open') === 'true' || false,
             listenForResize: false,
