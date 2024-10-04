@@ -19,7 +19,7 @@ class AdminBar extends Component
         }
 
         $tabs = collect(config('filament-admin-bar.tabs', []))
-            ->map(fn (string $tab) => new $tab())
+            ->map(fn (string $tab) => new $tab)
             ->filter(fn (Tab $tab) => $tab->canSee());
 
         if ($tabs->isEmpty()) {
