@@ -37,7 +37,7 @@
             calculateAdminBarHeight() {
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
                 const availableHeight = window.innerHeight - $tabs.clientHeight - 92
-                this.adminBarHeight = Math.min(400, availableHeight) + 'px'
+                this.adminBarHeight = Math.max(400, availableHeight) + 'px'
             },
             init() {
                 if (this.open) {
