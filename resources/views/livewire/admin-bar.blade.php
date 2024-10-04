@@ -13,22 +13,23 @@
                 window.document.documentElement.classList.toggle('user-select-none', shouldListen)
             },
             adminBarHeight: 400,
-            toggle () {
+            toggle (event) {
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
             },
             drag(event) {
                 if (! this.listenForResize) return
 
-                event.preventDefault()
-
+                this.calculateAdminBarHeight(event)
+            },
+            calculateAdminBarHeight(event) {
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
                 const newHeight = window.innerHeight - $tabs.clientHeight - (event.clientY || event.touches[0]?.clientY)
 
                 if (newHeight > 40 && newHeight < window.innerHeight - $tabs.clientHeight - 92) {
                     this.adminBarHeight = newHeight + 'px'
                 }
-            }
+            },
         }"
     >
         <div class="flex justify-end mr-3 mb-3">
@@ -93,7 +94,7 @@
                 >
                     <div
                         wire:ignore
-                        class="p-4 overflow-y-auto"
+                        class="p-4 overflow-y-scroll"
                         :style="{ height: adminBarHeight }"
                     >
                         {{ $tab->render() }}
