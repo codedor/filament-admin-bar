@@ -3,6 +3,7 @@
 
     <div
         class="fixed right-0 bottom-0 left-0 max-h-screen"
+        x-init="init"
         x-data="{
             open: window.localStorage.getItem('filament-admin-bar-open') === 'true' || false,
             listenForResize: false,
@@ -16,13 +17,16 @@
             toggle (event) {
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
+
+                this.$nextTick(() => {
+                    if (this.open) {
+                        this.calculateAdminBarHeight()
+                    }
+                })
             },
             drag(event) {
                 if (! this.listenForResize) return
 
-                this.calculateAdminBarHeight(event)
-            },
-            calculateAdminBarHeight(event) {
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
                 const newHeight = window.innerHeight - $tabs.clientHeight - (event.clientY || event.touches[0]?.clientY)
 
@@ -30,6 +34,21 @@
                     this.adminBarHeight = newHeight + 'px'
                 }
             },
+            calculateAdminBarHeight() {
+                const $tabs = document.querySelector('[data-admin-bar-tabs]')
+                const availableHeight = window.innerHeight - $tabs.clientHeight - 92
+                this.adminBarHeight = Math.min(400, availableHeight) + 'px'
+            },
+            init() {
+                if (this.open) {
+                    this.$nextTick(() => this.calculateAdminBarHeight())
+                }
+                window.addEventListener('resize', () => {
+                    if (this.open) {
+                        this.calculateAdminBarHeight()
+                    }
+                })
+            }
         }"
     >
         <div class="flex justify-end mr-3 mb-3">
