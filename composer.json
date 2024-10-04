@@ -28,7 +28,7 @@
         "phpstan/phpstan-phpunit": "^1.0"
     },
     "suggest":{
-        "codedor/filament-seo": "^1.1"
+        "codedor/filament-seo": "^1.1 || ^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -49,9 +49,6 @@
             "providers": [
                 "Codedor\\FilamentAdminBar\\Providers\\FilamentAdminBarServiceProvider"
             ]
-        },
-        "branch-alias": {
-            "dev-feature/laravel-11": "1.2.x-dev"
         }
     },
     "config": {
