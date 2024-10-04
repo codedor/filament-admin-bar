@@ -3,28 +3,20 @@
 
     <div
         class="fixed right-0 bottom-0 left-0 max-h-screen"
-        x-init="init"
         x-data="{
             open: window.localStorage.getItem('filament-admin-bar-open') === 'true' || false,
             listenForResize: false,
-            setListenForResize(shouldListen = true) {
-                this.listenForResize = shouldListen
-                {{-- The "user-select-none" class has to be bootstrap because the tailwind --}}
-                {{-- classes are scoped to the filament-admin-bar component --}}
-                window.document.documentElement.classList.toggle('user-select-none', shouldListen)
-            },
             adminBarHeight: 400,
             toggle (event) {
+                if (! this.open && window.localStorage.getItem('filament-admin-bar-height')) {
+                    this.adminBarHeight = window.localStorage.getItem('filament-admin-bar-height')
+                }
+
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
-
-                this.$nextTick(() => {
-                    if (this.open) {
-                        this.calculateAdminBarHeight()
-                    }
-                })
+                window.localStorage.setItem('filament-admin-bar-height', this.adminBarHeight)
             },
-            drag(event) {
+            drag (event) {
                 if (! this.listenForResize) return
 
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
@@ -32,22 +24,12 @@
 
                 if (newHeight > 40 && newHeight < window.innerHeight - $tabs.clientHeight - 92) {
                     this.adminBarHeight = newHeight + 'px'
+                    window.localStorage.setItem('filament-admin-bar-height', this.adminBarHeight)
                 }
             },
-            calculateAdminBarHeight() {
-                const $tabs = document.querySelector('[data-admin-bar-tabs]')
-                const availableHeight = window.innerHeight - $tabs.clientHeight - 92
-                this.adminBarHeight = Math.max(400, availableHeight) + 'px'
-            },
-            init() {
-                if (this.open) {
-                    this.$nextTick(() => this.calculateAdminBarHeight())
-                }
-                window.addEventListener('resize', () => {
-                    if (this.open) {
-                        this.calculateAdminBarHeight()
-                    }
-                })
+            init () {
+                this.open = window.localStorage.getItem('filament-admin-bar-open') === 'true'
+                this.adminBarHeight = window.localStorage.getItem('filament-admin-bar-height') || '400px'
             }
         }"
     >
