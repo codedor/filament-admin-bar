@@ -10,23 +10,25 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "codedor/filament-translatable-strings": "^1.0",
-        "codedor/filament-seo": "^1.0",
+        "codedor/filament-translatable-strings": "^1.1",
         "filament/filament": "^3.1",
-        "illuminate/contracts": "^10.0",
+        "illuminate/contracts": "^10.0 || ^11.0",
         "livewire/livewire": "^3.2",
         "spatie/laravel-package-tools": "^1.12"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
-        "nunomaduro/collision": "^7.0",
+        "nunomaduro/collision": "^7.0 || ^8.0",
         "larastan/larastan": "^2.0",
-        "orchestra/testbench": "^8.0",
+        "orchestra/testbench": "^8.0 || ^9.0",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan-deprecation-rules": "^1.0",
         "phpstan/phpstan-phpunit": "^1.0"
+    },
+    "suggest":{
+        "codedor/filament-seo": "^1.1 || ^2.0"
     },
     "autoload": {
         "psr-4": {

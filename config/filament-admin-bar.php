@@ -11,4 +11,5 @@ return [
             'routes.*',
         ],
     ],
+    'filament-guard' => null,
 ];
