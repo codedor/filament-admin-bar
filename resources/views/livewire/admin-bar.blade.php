@@ -2,32 +2,34 @@
     <link rel="stylesheet" href="{{ asset('css/codedor/filament-admin-bar/filament-admin-bar.css') }}">
 
     <div
-        class="fixed right-0 bottom-0 left-0 max-h-screen overflow-y-scroll"
+        class="fixed right-0 bottom-0 left-0 max-h-screen"
         x-data="{
             open: window.localStorage.getItem('filament-admin-bar-open') === 'true' || false,
             listenForResize: false,
-            setListenForResize(shouldListen = true) {
-                this.listenForResize = shouldListen
-                {{-- The "user-select-none" class has to be bootstrap because the tailwind --}}
-                {{-- classes are scoped to the filament-admin-bar component --}}
-                window.document.documentElement.classList.toggle('user-select-none', shouldListen)
-            },
             adminBarHeight: 400,
-            toggle () {
+            toggle (event) {
+                if (! this.open && window.localStorage.getItem('filament-admin-bar-height')) {
+                    this.adminBarHeight = window.localStorage.getItem('filament-admin-bar-height')
+                }
+
                 this.open = ! this.open
                 window.localStorage.setItem('filament-admin-bar-open', this.open)
+                window.localStorage.setItem('filament-admin-bar-height', this.adminBarHeight)
             },
-            drag(event) {
+            drag (event) {
                 if (! this.listenForResize) return
-
-                event.preventDefault()
 
                 const $tabs = document.querySelector('[data-admin-bar-tabs]')
                 const newHeight = window.innerHeight - $tabs.clientHeight - (event.clientY || event.touches[0]?.clientY)
 
                 if (newHeight > 40 && newHeight < window.innerHeight - $tabs.clientHeight - 92) {
                     this.adminBarHeight = newHeight + 'px'
+                    window.localStorage.setItem('filament-admin-bar-height', this.adminBarHeight)
                 }
+            },
+            init () {
+                this.open = window.localStorage.getItem('filament-admin-bar-open') === 'true'
+                this.adminBarHeight = window.localStorage.getItem('filament-admin-bar-height') || '400px'
             }
         }"
     >
@@ -93,7 +95,7 @@
                 >
                     <div
                         wire:ignore
-                        class="p-4 overflow-y-auto"
+                        class="p-4 overflow-y-scroll"
                         :style="{ height: adminBarHeight }"
                     >
                         {{ $tab->render() }}
