@@ -27,7 +27,10 @@ class AdminBar extends Component
         }
 
         if (! $this->current) {
-            $this->current = session('filament-admin-bar.current', $tabs->first()?->key());
+            $this->current = session(
+                'filament-admin-bar.current',
+                $tabs->first(default: null)?->key()
+            );
         }
 
         return view('filament-admin-bar::livewire.admin-bar', [
