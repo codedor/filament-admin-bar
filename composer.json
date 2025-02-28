@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "codedor/filament-translatable-strings": "dev-laravel-12 as 1.2.0",
+        "codedor/filament-translatable-strings": "^1.2",
         "filament/filament": "^3.1",
         "illuminate/contracts": "^10.0|^11.0|^12.0",
         "livewire/livewire": "^3.2",
