@@ -1,3 +1,15 @@
+/*
+ * Declare the canonical cascade layer order up front. Importing
+ * `tailwindcss/theme` and `tailwindcss/utilities` piecemeal skips the order
+ * statement that a full `@import 'tailwindcss'` would emit, so the compiled
+ * stylesheet used to register `utilities` before `base`. Cascade layer order
+ * is fixed document-wide by first appearance, and this stylesheet is
+ * registered globally via FilamentAsset — on panel pages it loads before the
+ * panel theme, pinning `base` above `utilities` and letting Tailwind's
+ * preflight reset override every utility class of the host page.
+ */
+@layer theme, base, components, utilities;
+
 @import './reset.css';
 
 @import 'tailwindcss/theme';
